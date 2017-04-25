@@ -8,6 +8,7 @@
  */
 
 use CustomerMvc\Controller\IndexController;
+use CustomerMvc\Controller\IndexControllerFactory;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
@@ -31,7 +32,7 @@ return [
 
     'controllers' => [
         'factories' => [
-            IndexController::class => InvokableFactory::class,
+            IndexController::class => IndexControllerFactory::class,
         ],
     ],
 

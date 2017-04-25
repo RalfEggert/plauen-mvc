@@ -9,7 +9,7 @@
 
 namespace CustomerDomain\Repository;
 
-class CustomerRepository
+class CustomerRepository implements CustomerRepositoryInterface
 {
     private $customers
         = [
