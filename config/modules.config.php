@@ -17,5 +17,7 @@ return [
     'Zend\Db',
     'Zend\Router',
     'Zend\Validator',
+    'CustomerDomain',
+    'CustomerMvc',
     'Application',
 ];

@@ -210,16 +210,16 @@
         },
         {
             "name": "zendframework/zend-component-installer",
-            "version": "0.7.0",
+            "version": "0.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-component-installer.git",
-                "reference": "aa05b53a29af282258df3cd27bb6618aa16f4047"
+                "reference": "700a22e4791daa1110be06f2fb055dc678d2b7ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-component-installer/zipball/aa05b53a29af282258df3cd27bb6618aa16f4047",
-                "reference": "aa05b53a29af282258df3cd27bb6618aa16f4047",
+                "url": "https://api.github.com/repos/zendframework/zend-component-installer/zipball/700a22e4791daa1110be06f2fb055dc678d2b7ff",
+                "reference": "700a22e4791daa1110be06f2fb055dc678d2b7ff",
                 "shasum": ""
             },
             "require": {
@@ -250,7 +250,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Composer plugin for automating component registration in zend-mvc and Expressive applications",
-            "time": "2017-02-22T17:44:09+00:00"
+            "time": "2017-04-11T19:16:05+00:00"
         },
         {
             "name": "zendframework/zend-config",
@@ -1323,27 +1323,27 @@
         },
         {
             "name": "zendframework/zend-validator",
-            "version": "2.8.2",
+            "version": "2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-validator.git",
-                "reference": "99b528e01276054458da9553b587cfb959dfa436"
+                "reference": "b71641582297eab52753b72cd4eb45a5ded4485c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/99b528e01276054458da9553b587cfb959dfa436",
-                "reference": "99b528e01276054458da9553b587cfb959dfa436",
+                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/b71641582297eab52753b72cd4eb45a5ded4485c",
+                "reference": "b71641582297eab52753b72cd4eb45a5ded4485c",
                 "shasum": ""
             },
             "require": {
                 "container-interop/container-interop": "^1.1",
-                "php": "^5.5 || ^7.0",
-                "zendframework/zend-stdlib": "^2.7 || ^3.0"
+                "php": "^5.6 || ^7.0",
+                "zendframework/zend-stdlib": "^2.7.6 || ^3.1"
             },
             "require-dev": {
-                "fabpot/php-cs-fixer": "1.7.*",
-                "phpunit/phpunit": "^4.0",
+                "phpunit/phpunit": "^6.0.8 || ^5.7.15",
                 "zendframework/zend-cache": "^2.6.1",
+                "zendframework/zend-coding-standard": "~1.0.0",
                 "zendframework/zend-config": "^2.6",
                 "zendframework/zend-db": "^2.7",
                 "zendframework/zend-filter": "^2.6",
@@ -1355,20 +1355,20 @@
                 "zendframework/zend-uri": "^2.5"
             },
             "suggest": {
-                "zendframework/zend-db": "Zend\\Db component",
+                "zendframework/zend-db": "Zend\\Db component, required by the (No)RecordExists validator",
                 "zendframework/zend-filter": "Zend\\Filter component, required by the Digits validator",
-                "zendframework/zend-i18n": "Zend\\I18n component to allow translation of validation error messages as well as to use the various Date validators",
+                "zendframework/zend-i18n": "Zend\\I18n component to allow translation of validation error messages",
                 "zendframework/zend-i18n-resources": "Translations of validator messages",
-                "zendframework/zend-math": "Zend\\Math component",
+                "zendframework/zend-math": "Zend\\Math component, required by the Csrf validator",
                 "zendframework/zend-servicemanager": "Zend\\ServiceManager component to allow using the ValidatorPluginManager and validator chains",
-                "zendframework/zend-session": "Zend\\Session component",
+                "zendframework/zend-session": "Zend\\Session component, required by the Csrf validator",
                 "zendframework/zend-uri": "Zend\\Uri component, required by the Uri and Sitemap\\Loc validators"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev",
-                    "dev-develop": "2.9-dev"
+                    "dev-master": "2.9-dev",
+                    "dev-develop": "2.10-dev"
                 },
                 "zf": {
                     "component": "Zend\\Validator",
@@ -1390,33 +1390,33 @@
                 "validator",
                 "zf2"
             ],
-            "time": "2017-01-29T17:24:24+00:00"
+            "time": "2017-03-17T10:15:50+00:00"
         },
         {
             "name": "zendframework/zend-view",
-            "version": "2.8.1",
+            "version": "2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-view.git",
-                "reference": "71b4ebd0c4c9a2d0e0438f9d3a435e08dd769ff8"
+                "reference": "3b6342c381c4437a03fc81d0064c0bb8924914d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-view/zipball/71b4ebd0c4c9a2d0e0438f9d3a435e08dd769ff8",
-                "reference": "71b4ebd0c4c9a2d0e0438f9d3a435e08dd769ff8",
+                "url": "https://api.github.com/repos/zendframework/zend-view/zipball/3b6342c381c4437a03fc81d0064c0bb8924914d3",
+                "reference": "3b6342c381c4437a03fc81d0064c0bb8924914d3",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5 || ^7.0",
+                "php": "^5.6 || ^7.0",
                 "zendframework/zend-eventmanager": "^2.6.2 || ^3.0",
                 "zendframework/zend-loader": "^2.5",
                 "zendframework/zend-stdlib": "^2.7 || ^3.0"
             },
             "require-dev": {
-                "fabpot/php-cs-fixer": "1.7.*",
-                "phpunit/phpunit": "^4.5",
+                "phpunit/phpunit": "^5.7.15 || ^6.0.8",
                 "zendframework/zend-authentication": "^2.5",
                 "zendframework/zend-cache": "^2.6.1",
+                "zendframework/zend-coding-standard": "~1.0.0",
                 "zendframework/zend-config": "^2.6",
                 "zendframework/zend-console": "^2.6",
                 "zendframework/zend-escaper": "^2.5",
@@ -1458,8 +1458,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev",
-                    "dev-develop": "2.9-dev"
+                    "dev-master": "2.9-dev",
+                    "dev-develop": "3.0-dev"
                 }
             },
             "autoload": {
@@ -1477,7 +1477,7 @@
                 "view",
                 "zf2"
             ],
-            "time": "2016-06-30T22:28:07+00:00"
+            "time": "2017-03-21T15:05:56+00:00"
         },
         {
             "name": "zfcampus/zf-development-mode",
