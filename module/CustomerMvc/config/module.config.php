@@ -9,8 +9,8 @@
 
 use CustomerMvc\Controller\IndexController;
 use CustomerMvc\Controller\IndexControllerFactory;
+use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
-use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
     'customer-mvc' => [],
@@ -18,14 +18,36 @@ return [
     'router' => [
         'routes' => [
             'customer' => [
-                'type'    => Segment::class,
-                'options' => [
-                    'route'    => '/customer[/:action]',
+                'type'          => Literal::class,
+                'options'       => [
+                    'route'    => '/customer',
                     'defaults' => [
                         'controller' => IndexController::class,
                         'action'     => 'index',
                     ],
                 ],
+                'may_terminate' => true,
+                'child_routes'  => [
+                    'action' => [
+                        'type'        => Segment::class,
+                        'options'     => [
+                            'route' => '/:action[/:id]',
+                            'constraints' => [
+                                'action' => '(show|update|create|delete)',
+                                'id'     => '[0-9]*',
+                            ],
+                        ],
+                    ],
+                    'page' => [
+                        'type'        => Segment::class,
+                        'options'     => [
+                            'route' => '/:page',
+                            'constraints' => [
+                                'page'     => '[0-9]*',
+                            ],
+                        ],
+                    ],
+                ]
             ],
         ],
     ],

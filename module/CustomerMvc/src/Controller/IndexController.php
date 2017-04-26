@@ -47,4 +47,24 @@ class IndexController extends AbstractActionController
 
         return $viewModel;
     }
+
+    public function showAction()
+    {
+        $id = $this->params()->fromRoute('id', false);
+        
+        if ($id === false) {
+            return $this->redirect()->toRoute('customer');
+        }
+
+        $customer = $this->customerRepository->getCustomerById($id);
+
+        if ($customer === false) {
+            return $this->redirect()->toRoute('customer');
+        }
+
+        $viewModel = new ViewModel();
+        $viewModel->setVariable('customer', $customer);
+
+        return $viewModel;
+    }
 }

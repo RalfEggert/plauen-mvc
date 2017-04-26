@@ -1,0 +1,30 @@
+<?php
+  $customer = $this->customer;
+?>
+
+<h1>Kunden</h1>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td><?= $customer['id'] ?></td>
+    </tr>
+    <tr>
+      <td>Vorname</td>
+      <td><?= $customer['first_name'] ?></td>
+    </tr>
+    <tr>
+      <td>Nachname</td>
+      <td><?= $customer['last_name'] ?></td>
+    </tr>
+    <tr>
+      <td>Land</td>
+      <td><?= $customer['country'] ?></td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<a href="<?= $this->url('customer') ?>" class="btn btn-primary">
+  Kundenliste
+</a>

@@ -13,13 +13,20 @@
   </thead>
   <tbody>
   <?php foreach ($this->customerList as $customer) : ?>
-      <tr>
-        <td><?=  $customer['id'] ?></td>
-        <td><?=  $customer['first_name'] ?></td>
-        <td><?=  $customer['last_name'] ?></td>
-        <td><?=  $customer['country'] ?></td>
-        <td><a href="#" class="btn btn-primary btn-sm">Anzeigen</a></td>
-      </tr>
+      <?php
+      $urlShow = $this->url(
+          'customer/action', ['action' => 'show', 'id' => $customer['id']]
+      );
+      ?>
+    <tr>
+      <td><?= $customer['id'] ?></td>
+      <td><?= $customer['first_name'] ?></td>
+      <td><?= $customer['last_name'] ?></td>
+      <td><?= $customer['country'] ?></td>
+      <td>
+        <a href="<?= $urlShow; ?>" class="btn btn-primary btn-sm">Anzeigen</a>
+      </td>
+    </tr>
   <?php endforeach; ?>
   </tbody>
 </table>
