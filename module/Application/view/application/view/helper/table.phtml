@@ -1,0 +1,39 @@
+<?php
+/**
+ * plauen-mvc
+ *
+ * @package    MODULENAME
+ * @copyright  Copyright (c) 2014 ralf
+ * @license    All rights reserved
+ */
+
+?>
+<table class="table">
+  <thead>
+  <tr>
+    <?php foreach ($this->columns as $columnKey => $columnValue) : ?>
+      <td><?= $columnValue ?></td>
+    <?php endforeach; ?>
+    <td>&nbsp;</td>
+  </tr>
+  </thead>
+  <tbody>
+  <?php foreach ($this->data as $row) : ?>
+  <?php
+  $urlShow = $this->url(
+      $this->parentRoute . '/action',
+      ['action' => 'show', 'id' => $row['id']]
+  );
+  ?>
+  <tr>
+    <?php foreach ($row as $columnKey => $columnValue) : ?>
+        <?php if (!isset($this->columns[$columnKey])) { continue; } ?>
+      <td><?= $columnValue ?></td>
+    <?php endforeach; ?>
+    <td>
+      <a href="<?= $urlShow; ?>" class="btn btn-primary btn-sm">Anzeigen</a>
+    </td>
+  </tr>
+  <?php endforeach; ?>
+  </tbody>
+</table>

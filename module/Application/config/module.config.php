@@ -7,6 +7,7 @@
 
 namespace Application;
 
+use Application\View\Helper\Table;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
@@ -55,6 +56,16 @@ return [
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
+        ],
+    ],
+
+    'view_helpers' => [
+        'factories' => [
+            Table::class => InvokableFactory::class,
+        ],
+
+        'aliases' => [
+            'applicationTable' => Table::class,
         ],
     ],
 ];

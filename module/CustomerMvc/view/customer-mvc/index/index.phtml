@@ -1,33 +1,21 @@
+<?php
+$tableColumns = [
+    'id'        => 'ID',
+    'last_name' => 'Nachname',
+    'country'   => 'Land',
+];
+
+$customerList = $this->customerList;
+
+foreach ($customerList as $customerKey => $customerValues) {
+    $customerList[$customerKey]['country'] = $this->customerCountry(
+        $customerValues['country']
+    );
+}
+?>
+
 <h1>Kunden</h1>
 <p>Hallo <?= $this->name ?></p>
 
-<table class="table">
-  <thead>
-  <tr>
-    <td>ID</td>
-    <td>Vorname</td>
-    <td>Nachname</td>
-    <td>Land</td>
-    <td>&nbsp;</td>
-  </tr>
-  </thead>
-  <tbody>
-  <?php foreach ($this->customerList as $customer) : ?>
-      <?php
-      $urlShow = $this->url(
-          'customer/action', ['action' => 'show', 'id' => $customer['id']]
-      );
-      ?>
-    <tr>
-      <td><?= $customer['id'] ?></td>
-      <td><?= $customer['first_name'] ?></td>
-      <td><?= $customer['last_name'] ?></td>
-      <td><?= $this->customerCountry($customer['country']) ?></td>
-      <td>
-        <a href="<?= $urlShow; ?>" class="btn btn-primary btn-sm">Anzeigen</a>
-      </td>
-    </tr>
-  <?php endforeach; ?>
-  </tbody>
-</table>
+<?= $this->applicationTable($customerList, $tableColumns, 'customer'); ?>
 
