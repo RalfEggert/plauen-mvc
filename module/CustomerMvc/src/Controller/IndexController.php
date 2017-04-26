@@ -53,7 +53,7 @@ class IndexController extends AbstractActionController
     /**
      * @return ViewModel
      */
-    public function indexAction() : ViewModel
+    public function indexAction(): ViewModel
     {
         $customerList = $this->customerRepository->getCustomerList();
 
@@ -70,7 +70,7 @@ class IndexController extends AbstractActionController
     public function showAction()
     {
         $id = $this->params()->fromRoute('id', false);
-        
+
         if ($id === false) {
             return $this->redirect()->toRoute('customer');
         }
@@ -97,7 +97,11 @@ class IndexController extends AbstractActionController
             $isValid = $this->customerForm->isValid();
 
             if ($isValid) {
-                
+                $this->customerRepository->saveCustomer(
+                    $this->customerForm->getData()
+                );
+
+                return $this->redirect()->toRoute('customer');
             }
         }
 

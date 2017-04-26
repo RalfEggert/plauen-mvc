@@ -20,4 +20,8 @@ interface CustomerStorageInterface
     public function fetchCustomerList();
 
     public function fetchCustomerById(int $id);
+
+    public function insertCustomer($data);
+
+    public function updateCustomer($data);
 }

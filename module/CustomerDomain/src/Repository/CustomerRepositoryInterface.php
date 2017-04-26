@@ -9,6 +9,11 @@
 
 namespace CustomerDomain\Repository;
 
+/**
+ * Interface CustomerRepositoryInterface
+ *
+ * @package CustomerDomain\Repository
+ */
 interface CustomerRepositoryInterface
 {
     /**
@@ -22,4 +27,11 @@ interface CustomerRepositoryInterface
      * @return array|bool
      */
     public function getCustomerById(int $id);
+
+    /**
+     * @param array $data
+     *
+     * @return mixed
+     */
+    public function saveCustomer(array $data);
 }

@@ -62,4 +62,21 @@ class CustomerDbStorage implements CustomerStorageInterface
 
         return $resultSet->current();
     }
+
+    public function insertCustomer($data)
+    {
+        $insert = $this->tableGateway->getSql()->insert();
+        $insert->values($data);
+
+        return $this->tableGateway->insertWith($insert) > 0;
+    }
+
+    public function updateCustomer($data)
+    {
+        $update = $this->tableGateway->getSql()->update();
+        $update->set($data);
+        $update->where->equalTo('id', $data['id']);
+
+        return $this->tableGateway->updateWith($update) > 0;
+    }
 }
