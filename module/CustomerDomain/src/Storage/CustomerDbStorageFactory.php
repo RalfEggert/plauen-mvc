@@ -15,7 +15,6 @@ use Interop\Container\ContainerInterface;
 use Zend\Db\Adapter\Adapter;
 use Zend\Db\ResultSet\HydratingResultSet;
 use Zend\Db\TableGateway\TableGateway;
-use Zend\Hydrator\HydratorPluginManager;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
 class CustomerDbStorageFactory implements FactoryInterface
