@@ -1,0 +1,54 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.4.1deb2ubuntu2
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Erstellungszeit: 26. Apr 2017 um 11:15
+-- Server-Version: 5.6.16-1~exp1
+-- PHP-Version: 7.0.15-0ubuntu0.16.04.4
+
+SET FOREIGN_KEY_CHECKS=0;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Datenbank: `plauen-mvc`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `customer`
+--
+
+DROP TABLE IF EXISTS `customer`;
+CREATE TABLE `customer` (
+  `id` smallint(5) UNSIGNED NOT NULL,
+  `first_name` varchar(32) NOT NULL,
+  `last_name` varchar(32) NOT NULL,
+  `country` char(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Daten für Tabelle `customer`
+--
+
+INSERT INTO `customer` (`id`, `first_name`, `last_name`, `country`) VALUES
+(1, 'Sebastian', 'Kappel', 'de'),
+(2, 'Birgit', 'Beike', 'at');
+
+--
+-- Indizes der exportierten Tabellen
+--
+
+--
+-- Indizes für die Tabelle `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`id`);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+COMMIT;
