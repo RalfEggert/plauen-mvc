@@ -19,4 +19,11 @@ return [
     'view_manager' => [
         'display_exceptions' => true,
     ],
+
+    'db' => [
+        'driver' => 'pdo',
+        'dsn'    => 'mysql:dbname=plauen-mvc;host=localhost;charset=utf8',
+        'user'   => 'plauen-mvc',
+        'pass'   => 'plauen-mvc',
+    ],
 ];

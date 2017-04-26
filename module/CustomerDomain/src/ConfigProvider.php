@@ -12,7 +12,11 @@ namespace CustomerDomain;
 use CustomerDomain\Config\CustomerConfig;
 use CustomerDomain\Config\CustomerConfigFactory;
 use CustomerDomain\Repository\CustomerRepository;
+use CustomerDomain\Repository\CustomerRepositoryFactory;
 use CustomerDomain\Repository\CustomerRepositoryInterface;
+use CustomerDomain\Storage\CustomerDbStorage;
+use CustomerDomain\Storage\CustomerDbStorageFactory;
+use CustomerDomain\Storage\CustomerStorageInterface;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 class ConfigProvider
@@ -30,9 +34,11 @@ class ConfigProvider
     {
         return [
             'factories' => [
-                CustomerRepository::class => InvokableFactory::class,
+                CustomerRepository::class => CustomerRepositoryFactory::class,
 
                 CustomerConfig::class => CustomerConfigFactory::class,
+
+                CustomerStorageInterface::class => CustomerDbStorageFactory::class,
             ],
 
             'aliases' => [
