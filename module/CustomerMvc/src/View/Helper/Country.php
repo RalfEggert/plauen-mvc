@@ -13,12 +13,17 @@ use Zend\View\Helper\AbstractHelper;
 
 class Country extends AbstractHelper
 {
-    private $countryList
-        = [
-            'de' => 'Deutschland',
-            'at' => 'Österreich',
-            'ch' => 'Schweiz',
-        ];
+    private $countryList = [];
+
+    /**
+     * Country constructor.
+     *
+     * @param array $countryList
+     */
+    public function __construct(array $countryList)
+    {
+        $this->countryList = $countryList;
+    }
 
     public function __invoke($country)
     {

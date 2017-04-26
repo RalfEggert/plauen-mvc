@@ -10,6 +10,7 @@
 use CustomerMvc\Controller\IndexController;
 use CustomerMvc\Controller\IndexControllerFactory;
 use CustomerMvc\View\Helper\Country;
+use CustomerMvc\View\Helper\CountryFactory;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
@@ -62,7 +63,7 @@ return [
 
     'view_helpers' => [
         'factories' => [
-            Country::class => InvokableFactory::class,
+            Country::class => CountryFactory::class,
         ],
 
         'aliases' => [

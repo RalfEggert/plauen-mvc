@@ -9,6 +9,8 @@
 
 namespace CustomerDomain;
 
+use CustomerDomain\Config\CustomerConfig;
+use CustomerDomain\Config\CustomerConfigFactory;
 use CustomerDomain\Repository\CustomerRepository;
 use CustomerDomain\Repository\CustomerRepositoryInterface;
 use Zend\ServiceManager\Factory\InvokableFactory;
@@ -29,6 +31,8 @@ class ConfigProvider
         return [
             'factories' => [
                 CustomerRepository::class => InvokableFactory::class,
+
+                CustomerConfig::class => CustomerConfigFactory::class,
             ],
 
             'aliases' => [
