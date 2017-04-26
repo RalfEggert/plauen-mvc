@@ -20,7 +20,8 @@
         "zendframework/zend-mvc-form": "^1.0",
         "zendframework/zend-mvc-i18n": "^1.0",
         "zendframework/zend-cache": "^2.7",
-        "zendframework/zend-hydrator": "^2.2"
+        "zendframework/zend-hydrator": "^2.2",
+        "ralfeggert/travello-view-helper": "^1.6"
     },
     "autoload": {
         "psr-4": {

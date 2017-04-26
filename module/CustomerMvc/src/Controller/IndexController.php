@@ -10,6 +10,7 @@
 namespace CustomerMvc\Controller;
 
 use CustomerDomain\Repository\CustomerRepositoryInterface;
+use CustomerMvc\Form\CustomerForm;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -26,12 +27,25 @@ class IndexController extends AbstractActionController
     private $customerRepository;
 
     /**
+     * @var CustomerForm
+     */
+    private $customerForm;
+
+    /**
      * @param CustomerRepositoryInterface $customerRepository
      */
     public function setCustomerRepository(
         CustomerRepositoryInterface $customerRepository
     ) {
         $this->customerRepository = $customerRepository;
+    }
+
+    /**
+     * @param CustomerForm $customerForm
+     */
+    public function setCustomerForm(CustomerForm $customerForm)
+    {
+        $this->customerForm = $customerForm;
     }
 
     /**
@@ -48,6 +62,9 @@ class IndexController extends AbstractActionController
         return $viewModel;
     }
 
+    /**
+     * @return \Zend\Http\Response|ViewModel
+     */
     public function showAction()
     {
         $id = $this->params()->fromRoute('id', false);
@@ -64,6 +81,14 @@ class IndexController extends AbstractActionController
 
         $viewModel = new ViewModel();
         $viewModel->setVariable('customer', $customer);
+
+        return $viewModel;
+    }
+
+    public function createAction()
+    {
+        $viewModel = new ViewModel();
+        $viewModel->setVariable('customerForm', $this->customerForm);
 
         return $viewModel;
     }

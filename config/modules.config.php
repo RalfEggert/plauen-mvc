@@ -11,6 +11,9 @@
  * This should be an array of module namespaces used in the application.
  */
 return [
+    'TravelloViewHelper',
+    'Zend\Mvc\Plugin\FlashMessenger',
+    'Zend\Session',
     'Zend\Cache',
     'Zend\Mvc\I18n',
     'Zend\Form',
