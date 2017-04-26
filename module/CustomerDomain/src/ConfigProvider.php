@@ -12,12 +12,14 @@ namespace CustomerDomain;
 use CustomerDomain\Config\CustomerConfig;
 use CustomerDomain\Config\CustomerConfigFactory;
 use CustomerDomain\Hydrator\CustomerHydrator;
+use CustomerDomain\InputFilter\CustomerInputFilter;
 use CustomerDomain\Repository\CustomerRepository;
 use CustomerDomain\Repository\CustomerRepositoryFactory;
 use CustomerDomain\Repository\CustomerRepositoryInterface;
-use CustomerDomain\Storage\CustomerDbStorage;
 use CustomerDomain\Storage\CustomerDbStorageFactory;
 use CustomerDomain\Storage\CustomerStorageInterface;
+use CustomerDomain\Validator\CountryValidator;
+use CustomerDomain\Validator\CountryValidatorFactory;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 class ConfigProvider
@@ -29,6 +31,8 @@ class ConfigProvider
 
             'service_manager' => $this->getServiceManagerConfig(),
             'hydrators'       => $this->getHydratorConfig(),
+            'validators'      => $this->getValidatorConfig(),
+            'input_filters'   => $this->getInputFilterConfig(),
         ];
     }
 
@@ -49,11 +53,29 @@ class ConfigProvider
         ];
     }
 
-    private function getHydratorConfig() : array
+    private function getHydratorConfig(): array
     {
         return [
             'factories' => [
                 CustomerHydrator::class => InvokableFactory::class,
+            ],
+        ];
+    }
+
+    private function getValidatorConfig(): array
+    {
+        return [
+            'factories' => [
+                CountryValidator::class => CountryValidatorFactory::class,
+            ],
+        ];
+    }
+
+    private function getInputFilterConfig(): array
+    {
+        return [
+            'factories' => [
+                CustomerInputFilter::class => InvokableFactory::class,
             ],
         ];
     }
