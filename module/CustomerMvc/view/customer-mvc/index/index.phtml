@@ -22,7 +22,7 @@
       <td><?= $customer['id'] ?></td>
       <td><?= $customer['first_name'] ?></td>
       <td><?= $customer['last_name'] ?></td>
-      <td><?= $customer['country'] ?></td>
+      <td><?= $this->customerCountry($customer['country']) ?></td>
       <td>
         <a href="<?= $urlShow; ?>" class="btn btn-primary btn-sm">Anzeigen</a>
       </td>
