@@ -1,5 +1,26 @@
 <h1>Kunden</h1>
 <p>Hallo <?= $this->name ?></p>
 
-<?php var_dump($this->customerList); ?>
+<table class="table">
+  <thead>
+  <tr>
+    <td>ID</td>
+    <td>Vorname</td>
+    <td>Nachname</td>
+    <td>Land</td>
+    <td>&nbsp;</td>
+  </tr>
+  </thead>
+  <tbody>
+  <?php foreach ($this->customerList as $customer) : ?>
+      <tr>
+        <td><?=  $customer['id'] ?></td>
+        <td><?=  $customer['first_name'] ?></td>
+        <td><?=  $customer['last_name'] ?></td>
+        <td><?=  $customer['country'] ?></td>
+        <td><a href="#" class="btn btn-primary btn-sm">Anzeigen</a></td>
+      </tr>
+  <?php endforeach; ?>
+  </tbody>
+</table>
 
