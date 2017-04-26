@@ -10,6 +10,7 @@
 use CustomerMvc\Controller\IndexController;
 use CustomerMvc\Controller\IndexControllerFactory;
 use CustomerMvc\Form\CustomerForm;
+use CustomerMvc\Form\CustomerFormFactory;
 use CustomerMvc\Form\Element\CountrySelect;
 use CustomerMvc\Form\Element\CountrySelectFactory;
 use CustomerMvc\View\Helper\Country;
@@ -76,7 +77,7 @@ return [
 
     'form_elements' => [
         'factories' => [
-            CustomerForm::class  => InvokableFactory::class,
+            CustomerForm::class  => CustomerFormFactory::class,
             CountrySelect::class => CountrySelectFactory::class,
         ],
     ],

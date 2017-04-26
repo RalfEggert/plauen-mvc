@@ -11,6 +11,7 @@ namespace CustomerMvc\Controller;
 
 use CustomerDomain\Repository\CustomerRepositoryInterface;
 use CustomerMvc\Form\CustomerForm;
+use Zend\Http\PhpEnvironment\Request;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
@@ -18,6 +19,7 @@ use Zend\View\Model\ViewModel;
  * Class IndexController
  *
  * @package CustomerMvc\Controller
+ * @method Request getRequest()
  */
 class IndexController extends AbstractActionController
 {
@@ -87,6 +89,18 @@ class IndexController extends AbstractActionController
 
     public function createAction()
     {
+        if ($this->getRequest()->isPost()) {
+            $postData = $this->params()->fromPost();
+
+            $this->customerForm->setData($postData);
+
+            $isValid = $this->customerForm->isValid();
+
+            if ($isValid) {
+                
+            }
+        }
+
         $viewModel = new ViewModel();
         $viewModel->setVariable('customerForm', $this->customerForm);
 

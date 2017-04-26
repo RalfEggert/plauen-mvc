@@ -17,6 +17,7 @@ return [
     'Zend\Cache',
     'Zend\Mvc\I18n',
     'Zend\Form',
+    'Zend\InputFilter',
     'Zend\Db',
     'Zend\Hydrator',
     'Zend\Router',
