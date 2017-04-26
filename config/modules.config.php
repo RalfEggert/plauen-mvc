@@ -15,6 +15,7 @@ return [
     'Zend\Mvc\I18n',
     'Zend\Form',
     'Zend\Db',
+    'Zend\Hydrator',
     'Zend\Router',
     'Zend\Validator',
     'CustomerDomain',

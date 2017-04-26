@@ -9,6 +9,7 @@
 
 namespace CustomerDomain\Storage;
 
+use CustomerDomain\Entity\CustomerEntity;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 
@@ -43,8 +44,9 @@ class CustomerDbStorage implements CustomerStorageInterface
 
         $customerList = [];
 
+        /** @var CustomerEntity $customer */
         foreach ($resultSet as $customer) {
-            $customerList[$customer['id']] = $customer;
+            $customerList[$customer->getId()] = $customer;
         }
 
         return $customerList;

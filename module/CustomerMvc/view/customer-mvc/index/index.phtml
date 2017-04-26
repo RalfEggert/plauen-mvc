@@ -1,17 +1,27 @@
 <?php
+use CustomerDomain\Entity\CustomerEntity;
+
 $tableColumns = [
-    'id'        => 'ID',
+    'id'         => 'ID',
     'first_name' => 'Vorname',
-    'last_name' => 'Nachname',
-    'country'   => 'Land',
+    'last_name'  => 'Nachname',
+    'country'    => 'Land',
 ];
 
-$customerList = $this->customerList;
+$customerList = [];
 
-foreach ($customerList as $customerKey => $customerValues) {
-    $customerList[$customerKey]['country'] = $this->customerCountry(
-        $customerValues['country']
-    );
+/**
+ * @var CustomerEntity $customerEntity
+ */
+foreach ($this->customerList as $customerEntity) {
+    $customerList[$customerEntity->getId()] = [
+        'id'         => $customerEntity->getId(),
+        'first_name' => $customerEntity->getFirstName(),
+        'last_name'  => $customerEntity->getLastName(),
+        'country'    => $this->customerCountry(
+            $customerEntity->getCountry()
+        ),
+    ];
 }
 ?>
 

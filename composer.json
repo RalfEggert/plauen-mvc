@@ -19,7 +19,8 @@
         "zendframework/zend-db": "^2.8.1",
         "zendframework/zend-mvc-form": "^1.0",
         "zendframework/zend-mvc-i18n": "^1.0",
-        "zendframework/zend-cache": "^2.7"
+        "zendframework/zend-cache": "^2.7",
+        "zendframework/zend-hydrator": "^2.2"
     },
     "autoload": {
         "psr-4": {

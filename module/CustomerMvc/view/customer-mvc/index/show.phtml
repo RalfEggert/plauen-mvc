@@ -1,5 +1,8 @@
 <?php
-  $customer = $this->customer;
+use CustomerDomain\Entity\CustomerEntity;
+
+/** @var CustomerEntity $customer */
+$customer = $this->customer;
 ?>
 
 <h1>Kunden</h1>
@@ -8,19 +11,19 @@
   <tbody>
     <tr>
       <td>ID</td>
-      <td><?= $customer['id'] ?></td>
+      <td><?= $customer->getId() ?></td>
     </tr>
     <tr>
       <td>Vorname</td>
-      <td><?= $customer['first_name'] ?></td>
+      <td><?= $customer->getFirstName() ?></td>
     </tr>
     <tr>
       <td>Nachname</td>
-      <td><?= $customer['last_name'] ?></td>
+      <td><?= $customer->getLastName() ?></td>
     </tr>
     <tr>
       <td>Land</td>
-      <td><?= $this->customerCountry($customer['country']) ?></td>
+      <td><?= $this->customerCountry($customer->getCountry()) ?></td>
     </tr>
   </tbody>
 </table>

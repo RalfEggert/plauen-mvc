@@ -9,10 +9,13 @@
 
 namespace CustomerDomain\Storage;
 
+use CustomerDomain\Entity\CustomerEntity;
+use CustomerDomain\Hydrator\CustomerHydrator;
 use Interop\Container\ContainerInterface;
 use Zend\Db\Adapter\Adapter;
-use Zend\Db\ResultSet\ResultSet;
+use Zend\Db\ResultSet\HydratingResultSet;
 use Zend\Db\TableGateway\TableGateway;
+use Zend\Hydrator\HydratorPluginManager;
 use Zend\ServiceManager\Factory\FactoryInterface;
 
 class CustomerDbStorageFactory implements FactoryInterface
@@ -20,11 +23,19 @@ class CustomerDbStorageFactory implements FactoryInterface
     public function __invoke(
         ContainerInterface $container, $requestedName, array $options = null
     ) {
+        $hydratorManager = $container->get('HydratorManager');
+
         $dbAdapter = $container->get(Adapter::class);
 
-        $resultSetPrototype = new ResultSet(ResultSet::TYPE_ARRAY);
+        $hydrator = $hydratorManager->get(CustomerHydrator::class);
 
-        $tableGateway = new TableGateway('customer', $dbAdapter, null, $resultSetPrototype);
+        $resultSetPrototype = new HydratingResultSet(
+            $hydrator, new CustomerEntity()
+        );
+
+        $tableGateway = new TableGateway(
+            'customer', $dbAdapter, null, $resultSetPrototype
+        );
 
         $storage = new CustomerDbStorage($tableGateway);
 

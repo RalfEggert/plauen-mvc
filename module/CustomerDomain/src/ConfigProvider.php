@@ -11,6 +11,7 @@ namespace CustomerDomain;
 
 use CustomerDomain\Config\CustomerConfig;
 use CustomerDomain\Config\CustomerConfigFactory;
+use CustomerDomain\Hydrator\CustomerHydrator;
 use CustomerDomain\Repository\CustomerRepository;
 use CustomerDomain\Repository\CustomerRepositoryFactory;
 use CustomerDomain\Repository\CustomerRepositoryInterface;
@@ -27,6 +28,7 @@ class ConfigProvider
             'customer-domain' => [],
 
             'service_manager' => $this->getServiceManagerConfig(),
+            'hydrators'       => $this->getHydratorConfig(),
         ];
     }
 
@@ -43,6 +45,15 @@ class ConfigProvider
 
             'aliases' => [
                 CustomerRepositoryInterface::class => CustomerRepository::class,
+            ],
+        ];
+    }
+
+    private function getHydratorConfig() : array
+    {
+        return [
+            'factories' => [
+                CustomerHydrator::class => InvokableFactory::class,
             ],
         ];
     }
